@@ -1,0 +1,1 @@
+Skal bruges til alt der har med emails, kommunikation, logs og grapher

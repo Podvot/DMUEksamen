@@ -1,0 +1,1 @@
+Skal bruges til hvad der har med salg af produkter, stock forandringer på produkter og logic af ordre.
