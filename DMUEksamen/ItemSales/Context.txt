@@ -1,1 +1,16 @@
-Skal bruges til hvad der har med salg af produkter, stock forandringer på produkter og logic af ordre.
+For at lave en Sales quote kør programmet, tryk (Alt + Q),
+skriv navnet på en af de tre ordre klasser ind og tryk på det resultat der kommer frem.
+
+Bicycle:
+Laver en order for den første kunde i kundelisten for Bicycle med quanity 1,
+men viser kun et eksempel på en sales order.
+
+
+TourBicycle:
+Laver en order for den sidste kunde i kundelisten for TourBicycle med quantity 5,
+og bliver lavet som en sales order i business central,
+der kan blive set under Sell-to Customer Sales History til højre og sat under Ongoing Sales Orders.
+
+FrontWheel:
+Laver en order for et specifikt kunde ID i kundelisten for FrontWheel med quanity 10,
+men viser kun et eksempel på en sales order.
