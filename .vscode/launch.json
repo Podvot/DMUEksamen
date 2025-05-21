@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Your Project",
+      "type": "al",
+      "request": "launch",
+      "server": "http://localhost",
+      "serverInstance": "BC170",        // ← match your real instance name
+      "authentication": "Windows",
+      "startupObjectType": "Page",
+      "startupObjectId": 22,
+      "breakOnError": true,
+      "schemaUpdateMode": "Recreate",
+      "tenant": "default"
+    }
+  ]
+}

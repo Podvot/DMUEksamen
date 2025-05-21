@@ -1,1 +1,58 @@
 Skal bruges til alt der har med emails, kommunikation, logs og grapher
+
+📦 Kontekst: Automatisk Lagerstatus og Mail Notifikation
+────────────────────────────────────────────────────────
+
+Denne mappe indeholder funktionalitet, som automatisk kontrollerer varelageret
+og sender en mail til lageret, hvis bestemte varer har lav lagerbeholdning.
+
+Løsningen er lavet til Microsoft Dynamics 365 Business Central 17 (OnPrem)
+og bruger det klassiske "SMTP Mail" kodeunit til at sende e-mails.
+
+────────────────────────────────────────────────────────
+🧱 Hvad indeholder det:
+────────────────────────────────────────────────────────
+
+1. Tabel: "Mail Message"
+   - En brugerdefineret mail-kø, hvor mails oprettes og afventer afsendelse.
+
+2. Codeunit 50122: "Stock Checker"
+   - Tjekker lagerstatus for bestemte varenr (1000, 1001, 1100).
+   - Hvis beholdningen er under grænsen (default: 5 stk), oprettes en mail i køen.
+
+3. Codeunit 50123: "Mail Sender"
+   - Sender mails med status = "Pending" via SMTP.
+   - Opdaterer status til "Sent" efter vellykket afsendelse.
+
+
+────────────────────────────────────────────────────────
+🚀 Sådan bruger du det:
+────────────────────────────────────────────────────────
+
+1. ✅ SMTP OPSÆTNING
+   - Gå til "SMTP Mail Setup" i Business Central og udfyld serverinformation.
+   - Sørg for at "From Email" matcher det, du har angivet i `MailSender.al`.
+
+2. ✅ PUBLICÉR UDVIKLINGEN
+   - Brug F5 eller "AL: Publish" i Visual Studio Code for at installere løsningen.
+
+3. ✅ JOBKØ OPSÆTNING
+   - Gå til "Job Queue Entries":
+     ➤ Tilføj en jobkø, som kører Codeunit 50122 (Stock Checker) dagligt.
+     ➤ Tilføj en jobkø, som kører Codeunit 50123 (Mail Sender) hver 5.-10. minut.
+   - Sæt begge til "Klar" (Ready).
+
+
+────────────────────────────────────────────────────────
+🧪 Manuelt test (valgfrit):
+────────────────────────────────────────────────────────
+HAr lavet en test som kan køres i cs ved alt + q søg på run Stock Checker 
+
+────────────────────────────────────────────────────────
+📌 Bemærk:
+────────────────────────────────────────────────────────
+Dette er en forsimplet løsning lavet til eksamen eller træning.
+I et produktionssystem bør grænseværdier og e-mailopsætning være dynamisk og konfigurerbar.
+
+────────────────────────────────────────────────────────
+👨‍💻 Udarbejdet til DMU Eksamen – CommunicationSystems mappen
