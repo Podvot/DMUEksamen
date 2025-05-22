@@ -13,8 +13,6 @@ codeunit 50122 "Stock Checker"
         i: Integer;
     begin
         Threshold := 5;
-
-
         ItemNos[1] := '1000';
         ItemNos[2] := '1001';
         ItemNos[3] := '1100';
@@ -23,19 +21,19 @@ codeunit 50122 "Stock Checker"
             ItemNo := ItemNos[i];
 
             if Item.Get(ItemNo) then begin
+                Item.CalcFields("Inventory"); // 🔥 Important line
                 if Item.Inventory < Threshold then begin
                     Body := StrSubstNo(
                         'Item %1 (%2) is below stock. Inventory: %3 / Limit: %4',
                         Item."No.", Item.Description, Item.Inventory, Threshold);
 
-                    Clear(Mail); // reset memory fully
-                    Mail."To Address" := 'warehouse@Bikeshop.com';
+                    Clear(Mail);
+                    Mail.ToAddress := 'warehouse@bikeshop.com';
                     Mail.Subject := 'LOW STOCK: ' + Item."No.";
                     Mail.Body := Body;
                     Mail.Status := Mail.Status::Pending;
-                    Mail."Created At" := CURRENTDATETIME;
+                    Mail.CreatedAt := CurrentDateTime;
                     Mail.Insert(true);
-
                 end;
             end;
         end;

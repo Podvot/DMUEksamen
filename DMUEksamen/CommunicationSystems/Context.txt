@@ -24,19 +24,13 @@ og bruger det klassiske "SMTP Mail" kodeunit til at sende e-mails.
    - Sender mails med status = "Pending" via SMTP.
    - Opdaterer status til "Sent" efter vellykket afsendelse.
 
-
+4.  TJEK MAILSTATUS
+   - Søg efter "Mail Message List" i Business Central for at se sendte og ventende mails.
 ────────────────────────────────────────────────────────
 🚀 Sådan bruger du det:
 ────────────────────────────────────────────────────────
 
-1. ✅ SMTP OPSÆTNING
-   - Gå til "SMTP Mail Setup" i Business Central og udfyld serverinformation.
-   - Sørg for at "From Email" matcher det, du har angivet i `MailSender.al`.
-
-2. ✅ PUBLICÉR UDVIKLINGEN
-   - Brug F5 eller "AL: Publish" i Visual Studio Code for at installere løsningen.
-
-3. ✅ JOBKØ OPSÆTNING
+ ✅ JOBKØ OPSÆTNING
    - Gå til "Job Queue Entries":
      ➤ Tilføj en jobkø, som kører Codeunit 50122 (Stock Checker) dagligt.
      ➤ Tilføj en jobkø, som kører Codeunit 50123 (Mail Sender) hver 5.-10. minut.
