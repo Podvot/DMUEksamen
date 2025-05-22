@@ -12,3 +12,4 @@ report 50140 "Run Stock Checker"
         Message('Lagerstatus er kontrolleret, og beskeder er oprettet hvis nødvendigt.');
     end;
 }
+

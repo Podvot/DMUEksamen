@@ -11,7 +11,7 @@ codeunit 50123 "Mail Sender"
                     SMTP.CreateMessage(
                         'System Notification', // FromName
                         'noreply@Bikeshop.com', // FromAddress
-                        Mail."To Address", // To
+                        Mail.ToAddress, // To
                         Mail.Subject, // Subject
                         Mail.Body, // Body
                         false // Not HTML
