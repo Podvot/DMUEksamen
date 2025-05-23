@@ -19,6 +19,7 @@ report 50111 OrderTourBicycle
         if not Customer.FindLast() then
             Error('Could not find any customers');
 
+        //Checker om kunden vi har valgt findes og sender en besked tilbage med deres navn
         CustomerNo := Customer."No.";
         Message('Selected customer: %1 (%2)', CustomerNo, Customer.Name);
 

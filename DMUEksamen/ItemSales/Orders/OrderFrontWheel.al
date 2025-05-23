@@ -3,7 +3,7 @@ report 50102 OrderFrontWheel
     Caption = 'Sales order for item ID: 1100';
     UsageCategory = Administration;
     ApplicationArea = All;
-    ProcessingOnly = false;
+    ProcessingOnly = true;
 
     trigger OnPreReport()
     var
@@ -19,6 +19,7 @@ report 50102 OrderFrontWheel
         if not Customer.Get('20339921') then
             Error('Could not find any customers');
 
+        //Checker om kunden vi har valgt findes og sender en besked tilbage med deres navn
         CustomerNo := Customer."No.";
         Message('Selected customer: %1 (%2)', CustomerNo, Customer.Name);
 

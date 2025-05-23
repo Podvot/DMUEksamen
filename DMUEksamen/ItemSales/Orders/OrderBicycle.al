@@ -3,7 +3,7 @@ report 50110 OrderBicycle
     Caption = 'Sales order for item ID: 1000';
     UsageCategory = Administration;
     ApplicationArea = All;
-    ProcessingOnly = false;
+    ProcessingOnly = true;
 
     trigger OnPreReport()
     var
@@ -19,6 +19,7 @@ report 50110 OrderBicycle
         if not Customer.FindFirst() then
             Error('Could not find any customers');
 
+        //Checker om kunden vi har valgt findes og sender en besked tilbage med deres navn
         CustomerNo := Customer."No.";
         Message('Selected customer: %1 (%2)', CustomerNo, Customer.Name);
 
